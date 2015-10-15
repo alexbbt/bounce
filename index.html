@@ -20,7 +20,23 @@
     <link rel="stylesheet" href="main.css"/>
   </head>
   <body>
+  	<div id="options">
+  		<form action="">
+			<input id="char" type="radio" name="charOrString" value="char" checked>
+			<label for="char">Characters</label><br>
+			<input id="string" type="radio" name="charOrString" value="string">
+			<label for="string">Strings</label>
+		</form>
+		<hr>
+		<form action="">
+			<input id="edges" type="radio" name="edgesOrCenter" value="edges" checked>
+			<label for="edges">Edges</label><br>
+			<input id="center" type="radio" name="edgesOrCenter" value="center">
+			<label for="center">Center</label>
+		</form>
+  	</div>
     <div id='animateBox'>
+    	<div id="typing"></div>
     </div>
   </body>
 </html>

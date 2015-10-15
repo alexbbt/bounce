@@ -1,6 +1,4 @@
-div.animate {
-    width: 50px;
-    height:50px;
+div.animate, #typing {
     background-color:black;
     color:white;
     font-size: 40px;
@@ -8,10 +6,22 @@ div.animate {
     border-radius: 5px;
     position:fixed;
     text-transform: uppercase;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .console-line
 {
     font-family: monospace;
     margin: 2px;
+}
+
+#options {
+	position: fixed;
+	top: 0;
+	right: 0;
+	border-radius: 5px;
+	padding: 25px;
+	background-color: black;
+	color: white;
 }

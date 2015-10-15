@@ -3,35 +3,69 @@ $(document).ready(function () {
     $('.animate').each(animateDiv);
 });
 
-function makeNewPosition() {
-
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 50;
-    var w = $(window).width() - 50;
-
+function makeNewPosition(div) {
+  var edges = $('input[name=edgesOrCenter]:checked').val() == 'edges';
+  var h = $(window).height() - $(div).height();
+  var w = $(window).width() - $(div).width();
+  console
+  if (edges) {
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
-
+    if (nh>nw) {
+      nw = 0;
+    } else{
+      nh = 0;
+    };
+  } else{
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);    
+  };
+    // Get viewport dimensions (remove the dimension of the div)
     return [nh, nw];
-
 }
 
+var time = 100;
+
 function animateDiv() {
-    var newq = makeNewPosition();
-    //console.log($(this));
+    var newq = makeNewPosition($(this));
     $(this).animate({
         top: newq[0],
         left: newq[1]
-    }, function () {
+    }, time, function () {
         $(this).each(animateDiv);
     });
 };
 
+var string = '';
+
 $( document ).keypress(function(e) {
+  var charater = $('input[name=charOrString]:checked').val() == 'char';
+  console.log(charater);
   console.log('keypress', String.fromCharCode( e.which ));
-  var newDiv = document.createElement('div');
-  newDiv.className = "animate";
-  newDiv.innerHTML = String.fromCharCode( e.which );
-  $('#animateBox').append(newDiv);
-  $('.animate').each(animateDiv);
+  console.log(e.charCode);
+  if (charater) {
+    var newDiv = document.createElement('div');
+      newDiv.className = "animate";
+      newDiv.innerHTML = String.fromCharCode( e.which );
+      $('#animateBox').append(newDiv);
+      $(newDiv).each(animateDiv);
+      string = '';
+      $('#typing').html(string);
+  } else{
+    if (e.charCode === 13) {
+      var newDiv = document.createElement('div');
+      newDiv.className = "animate";
+      newDiv.innerHTML = string;
+      $(newDiv).each(animateDiv);
+      $('#animateBox').append(newDiv);
+      string = '';
+      $('#typing').html(string);
+    } else if (e.charCode === 8) {
+      alert('back');
+    } else {
+      string += String.fromCharCode( e.which );
+      $('#typing').html(string);
+    }
+  };
+  
 });
