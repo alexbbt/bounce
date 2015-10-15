@@ -5,16 +5,26 @@ $(document).ready(function () {
 
 function makeNewPosition(div) {
   var edges = $('input[name=edgesOrCenter]:checked').val() == 'edges';
-  var h = $(window).height() - $(div).height();
-  var w = $(window).width() - $(div).width();
+  var h = $('#animateBox').height() - $(div).height();
+  var w = $('#animateBox').width() - $(div).width();
+  //console.log("h: " + h + " w: " + w);
+  //console.log("divh: " + $(div).height() + " divw: " + $(div).width());
   console
   if (edges) {
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
-    if (nh>nw) {
-      nw = 0;
+    if ((h-nh)>(w-nw)) {
+      if ((w-nw>nw)) {
+        nw = 0;
+      } else{
+        nw = w;
+      };
     } else{
-      nh = 0;
+      if ((h-nh>nh)) {
+        nh = 0;
+      } else{
+        nh = w;
+      };
     };
   } else{
     var nh = Math.floor(Math.random() * h);

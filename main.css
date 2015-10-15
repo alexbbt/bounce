@@ -1,3 +1,8 @@
+html, body, #animateBox {
+    height: 100%;
+    width: 100%;
+}
+
 div.animate, #typing {
     background-color:black;
     color:white;
@@ -26,6 +31,11 @@ div.animate, #typing {
 	background-color: black;
 	color: white;
     z-index: 1;
+}
+
+#options > a {
+    color: white;
+    font-size: 1.5em;
 }
 #speed {
     background-color: black;
