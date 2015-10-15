@@ -37,7 +37,7 @@ div.animate, #typing {
     color: white;
     font-size: 1.5em;
 }
-#speed {
+.num {
     background-color: black;
     border: none;
     width: 90px;

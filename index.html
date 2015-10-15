@@ -29,10 +29,15 @@
   			<input id="center" type="radio" name="edgesOrCenter" value="center" checked>
         <label for="center">Center</label><br>
         <input id="edges" type="radio" name="edgesOrCenter" value="edges">
-  			<label for="edges">Edges</label>
+        <label for="edges">Edges</label><br>
+        <input id="mouse" type="radio" name="edgesOrCenter" value="mouse">
+        <label for="mouse">Mouse</label><br>
+      <hr>
+        <label for="mouseStrength">Mouse Strength</label><br>
+        <input class="num" id="mouseStrength" type="number" name="mouseStrength" value="5" min="1" max="100">
       <hr>
         <label for="speed">Speed</label><br>
-        <input id="speed" type="number" name="edgesOrCenter" value="500" max="99999">
+        <input class="num" id="speed" type="number" name="speed" value="500" min="1" max="99999">
       <hr>
         <a href="./">Clear</a>
   	</div>

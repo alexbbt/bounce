@@ -3,16 +3,22 @@ $(document).ready(function () {
     $('.animate').each(animateDiv);
 });
 
+var mouseX = 0;
+var mouseY = 0;
+$(document).bind('mousemove',function(e){ 
+  //console.log("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+  mouseX = e.pageX;
+  mouseY = e.pageY;
+});
 function makeNewPosition(div) {
-  var edges = $('input[name=edgesOrCenter]:checked').val() == 'edges';
+  var setting = $('input[name=edgesOrCenter]:checked').val();
   var h = $('#animateBox').height() - $(div).height();
   var w = $('#animateBox').width() - $(div).width();
   //console.log("h: " + h + " w: " + w);
   //console.log("divh: " + $(div).height() + " divw: " + $(div).width());
-  console
-  if (edges) {
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
+  var nh = Math.floor(Math.random() * h);
+  var nw = Math.floor(Math.random() * w); 
+  if (setting == 'edges') {
     if ((h-nh)>(w-nw)) {
       if ((w-nw>nw)) {
         nw = 0;
@@ -26,9 +32,11 @@ function makeNewPosition(div) {
         nh = w;
       };
     };
-  } else{
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);    
+  } else if (setting == 'mouse'){
+    nh = mouseY - ((mouseY - nh)/$('#mouseStrength').val());
+    nw = mouseX - ((mouseX - nw)/$('#mouseStrength').val());
+  } else {
+       
   };
     // Get viewport dimensions (remove the dimension of the div)
     return [nh, nw];
@@ -50,10 +58,10 @@ var string = '';
 
 $( document ).keypress(function(e) {
   var charater = $('input[name=charOrString]:checked').val() == 'char';
-  console.log(charater);
-  console.log('keypress', String.fromCharCode( e.which ));
-  console.log(e.charCode);
-  if (!$('#speed').is(':focus')) {
+  //console.log(charater);
+  //console.log('keypress', String.fromCharCode( e.which ));
+  //console.log(e.charCode);
+  if (!$('#speed').is(':focus') && !$('#mouseStrength').is(':focus')) {
     if (charater) {
       var newDiv = document.createElement('div');
         newDiv.className = "animate";
