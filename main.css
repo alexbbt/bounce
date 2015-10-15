@@ -8,6 +8,7 @@ div.animate, #typing {
     text-transform: uppercase;
     padding-left: 15px;
     padding-right: 15px;
+    z-index: -1;
 }
 
 .console-line
@@ -24,4 +25,11 @@ div.animate, #typing {
 	padding: 25px;
 	background-color: black;
 	color: white;
+    z-index: 1;
+}
+#speed {
+    background-color: black;
+    border: none;
+    width: 90px;
+    font-size: 30px;
 }

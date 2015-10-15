@@ -24,14 +24,14 @@ function makeNewPosition(div) {
     return [nh, nw];
 }
 
-var time = 100;
+//var time = 100;
 
 function animateDiv() {
     var newq = makeNewPosition($(this));
     $(this).animate({
         top: newq[0],
         left: newq[1]
-    }, time, function () {
+    }, parseInt($('#speed').val()), function () {
         $(this).each(animateDiv);
     });
 };
@@ -43,29 +43,30 @@ $( document ).keypress(function(e) {
   console.log(charater);
   console.log('keypress', String.fromCharCode( e.which ));
   console.log(e.charCode);
-  if (charater) {
-    var newDiv = document.createElement('div');
-      newDiv.className = "animate";
-      newDiv.innerHTML = String.fromCharCode( e.which );
-      $('#animateBox').append(newDiv);
-      $(newDiv).each(animateDiv);
-      string = '';
-      $('#typing').html(string);
-  } else{
-    if (e.charCode === 13) {
+  if (!$('#speed').is(':focus')) {
+    if (charater) {
       var newDiv = document.createElement('div');
-      newDiv.className = "animate";
-      newDiv.innerHTML = string;
-      $(newDiv).each(animateDiv);
-      $('#animateBox').append(newDiv);
-      string = '';
-      $('#typing').html(string);
-    } else if (e.charCode === 8) {
-      alert('back');
-    } else {
-      string += String.fromCharCode( e.which );
-      $('#typing').html(string);
-    }
-  };
-  
+        newDiv.className = "animate";
+        newDiv.innerHTML = String.fromCharCode( e.which );
+        $('#animateBox').append(newDiv);
+        $(newDiv).each(animateDiv);
+        string = '';
+        $('#typing').html(string);
+    } else{
+      if (e.charCode === 13) {
+        var newDiv = document.createElement('div');
+        newDiv.className = "animate";
+        newDiv.innerHTML = string;
+        $(newDiv).each(animateDiv);
+        $('#animateBox').append(newDiv);
+        string = '';
+        $('#typing').html(string);
+      } else if (e.charCode === 8) {
+        alert('back');
+      } else {
+        string += String.fromCharCode( e.which );
+        $('#typing').html(string);
+      }
+    };
+  }
 });

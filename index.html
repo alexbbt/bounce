@@ -21,19 +21,18 @@
   </head>
   <body>
   	<div id="options">
-  		<form action="">
-			<input id="char" type="radio" name="charOrString" value="char" checked>
-			<label for="char">Characters</label><br>
-			<input id="string" type="radio" name="charOrString" value="string">
-			<label for="string">Strings</label>
-		</form>
-		<hr>
-		<form action="">
-			<input id="edges" type="radio" name="edgesOrCenter" value="edges" checked>
-			<label for="edges">Edges</label><br>
-			<input id="center" type="radio" name="edgesOrCenter" value="center">
-			<label for="center">Center</label>
-		</form>
+  			<input id="char" type="radio" name="charOrString" value="char" checked>
+  			<label for="char">Characters</label><br>
+  			<input id="string" type="radio" name="charOrString" value="string">
+  			<label for="string">Strings</label>
+  		<hr>
+  			<input id="center" type="radio" name="edgesOrCenter" value="center" checked>
+        <label for="center">Center</label><br>
+        <input id="edges" type="radio" name="edgesOrCenter" value="edges">
+  			<label for="edges">Edges</label>
+      <hr>
+        <label for="speed">Speed</label><br>
+        <input id="speed" type="number" name="edgesOrCenter" value="500" max="99999">
   	</div>
     <div id='animateBox'>
     	<div id="typing"></div>
