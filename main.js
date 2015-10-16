@@ -2,7 +2,8 @@ $(document).ready(function () {
     //console.log($('.animate'));
     $('.animate').each(animateDiv);
     if (mobilecheck()) {
-      $('body').html('<div style="font-size:40px;border-radius: 5px;padding: 25px;background-color: black;color: white;">Please visit this site on a Computer, as the site will not work right on mobile.</div>');
+      //$('body').html('<div style="font-size:40px;border-radius: 5px;padding: 25px;background-color: black;color: white;">Please visit this site on a Computer, as the site will not work right on mobile.</div>');
+      $('body').prepend('<input style="width: 100%;" type="text" name="speed">');
     };
 });
 
