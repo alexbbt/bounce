@@ -33,7 +33,7 @@ div.animate, #typing {
     z-index: 1;
 }
 
-#options > a {
+#options > div > ul > a {
     color: white;
     font-size: 1.5em;
 }

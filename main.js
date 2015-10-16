@@ -1,12 +1,22 @@
 $(document).ready(function () {
     //console.log($('.animate'));
-    $('.animate').each(animateDiv);
+    //$('.animate').each(animateDiv);
+    $('#pasteBox').click(paste);
     if (mobilecheck()) {
       //$('body').html('<div style="font-size:40px;border-radius: 5px;padding: 25px;background-color: black;color: white;">Please visit this site on a Computer, as the site will not work right on mobile.</div>');
       $('body').prepend('<input style="width: 100%;" type="text" name="speed">');
       //$('#options').hide();
     };
 });
+
+function paste() {
+  bootbox.prompt("What would you like to Paste?", function(result) {                
+    if (result !== null) {
+      create(result);
+    }
+  });
+}
+
 
 var mobilecheck = function() {
   var check = false;
@@ -72,24 +82,12 @@ $( document ).keypress(function(e) {
   //console.log(charater);
   //console.log('keypress', String.fromCharCode( e.which ));
   //console.log(e.charCode);
-  if (!$('#speed').is(':focus') && !$('#mouseStrength').is(':focus')) {
+  if (!$('.num').is(':focus') && !$('.bootbox-input').is(':focus')) {
     if (charater) {
-      var newDiv = document.createElement('div');
-        newDiv.className = "animate";
-        newDiv.innerHTML = String.fromCharCode( e.which );
-        $('#animateBox').append(newDiv);
-        $(newDiv).each(animateDiv);
-        string = '';
-        $('#typing').html(string);
+      create(String.fromCharCode( e.which ));
     } else{
       if (e.charCode === 13) {
-        var newDiv = document.createElement('div');
-        newDiv.className = "animate";
-        newDiv.innerHTML = string;
-        $(newDiv).each(animateDiv);
-        $('#animateBox').append(newDiv);
-        string = '';
-        $('#typing').html(string);
+        create(string);
       } else if (e.charCode === 8) {
         alert('back');
       } else {
@@ -99,3 +97,13 @@ $( document ).keypress(function(e) {
     };
   }
 });
+
+function create(given) {
+  var newDiv = document.createElement('div');
+  newDiv.className = "animate";
+  newDiv.innerHTML = given;
+  $('#animateBox').append(newDiv);
+  $(newDiv).each(animateDiv);
+  string = '';
+  $('#typing').html(string);
+}
