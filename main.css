@@ -43,3 +43,11 @@ div.animate, #typing {
     width: 90px;
     font-size: 30px;
 }
+
+#mobileButton {
+    background-color: white;
+    margin: 0;
+}
+.icon-bar {
+    background-color: black;
+}

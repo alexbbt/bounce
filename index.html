@@ -17,25 +17,38 @@
   </head>
   <body>
   	<div id="options">
-  			<input id="char" type="radio" name="charOrString" value="char" checked>
-  			<label for="char">Characters</label><br>
-  			<input id="string" type="radio" name="charOrString" value="string">
-  			<label for="string">Strings</label>
-  		<hr>
-  			<input id="center" type="radio" name="edgesOrCenter" value="center" checked>
-        <label for="center">Center</label><br>
-        <input id="edges" type="radio" name="edgesOrCenter" value="edges">
-        <label for="edges">Edges</label><br>
-        <input id="mouse" type="radio" name="edgesOrCenter" value="mouse">
-        <label for="mouse">Mouse</label><br>
-      <hr>
-        <label for="mouseStrength">Mouse<br>Strength</label><br>
-        <input class="num" id="mouseStrength" type="number" name="mouseStrength" value="5" min="1" max="100">
-      <hr>
-        <label for="speed">Speed</label><br>
-        <input class="num" id="speed" type="number" name="speed" value="500" min="1" max="99999">
-      <hr>
-        <a href="./">Clear</a>
+      <div class="navbar-header">
+        <button id="mobileButton" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <input id="char" type="radio" name="charOrString" value="char" checked>
+          <label for="char">Characters</label><br>
+          <input id="string" type="radio" name="charOrString" value="string">
+          <label for="string">Strings</label>
+        <hr>
+          <input id="center" type="radio" name="edgesOrCenter" value="center" checked>
+          <label for="center">Center</label><br>
+          <input id="edges" type="radio" name="edgesOrCenter" value="edges">
+          <label for="edges">Edges</label><br>
+          <input id="mouse" type="radio" name="edgesOrCenter" value="mouse">
+          <label for="mouse">Mouse</label><br>
+        <hr>
+          <label for="mouseStrength">Mouse<br>Strength</label><br>
+          <input class="num" id="mouseStrength" type="number" name="mouseStrength" value="5" min="1" max="100">
+        <hr>
+          <label for="speed">Speed</label><br>
+          <input class="num" id="speed" type="number" name="speed" value="500" min="1" max="99999">
+        <hr>
+          <a href="./">Clear</a>
+        </ul>
+      </div><!-- /.navbar-collapse -->
   	</div>
     <div id='animateBox'>
     	<div id="typing"></div>
